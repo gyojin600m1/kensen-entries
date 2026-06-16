@@ -13,8 +13,8 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Mei
 .header-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
 .header-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.2;}
 .header-sub{font-size:11px;color:var(--text2);margin-top:2px;}
-.tabs{display:flex;margin-bottom:14px;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
-.tab{flex:1;padding:9px 0;text-align:center;font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;background:var(--surface2);transition:all 0.2s;-webkit-tap-highlight-color:transparent;}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:14px;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+.tab{padding:9px 4px;text-align:center;font-size:10.5px;line-height:1.2;font-weight:700;color:var(--text2);cursor:pointer;background:var(--surface2);transition:all 0.2s;-webkit-tap-highlight-color:transparent;}
 .tab.active{background:linear-gradient(135deg,var(--accent2),#005fa3);color:#fff;}
 .gender-filter{display:flex;gap:6px;margin-bottom:12px;}
 .gchip{flex:1;padding:8px 0;text-align:center;font-size:13px;font-weight:700;border-radius:20px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);cursor:pointer;-webkit-tap-highlight-color:transparent;}
@@ -107,21 +107,26 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Mei
 .prog-arrow{font-size:11px;color:var(--accent);flex-shrink:0;margin-left:2px;}
 /* レーン予想 */
 .lane-predict{margin:10px 0 14px;}
-.lane-note{font-size:11px;line-height:1.7;color:var(--text2);background:rgba(0,196,255,0.08);border:1px solid rgba(0,196,255,0.2);border-radius:10px;padding:10px 12px;margin-bottom:10px;}
-.lane-emphasis{color:#ffd84d;font-weight:900;text-shadow:0 0 10px rgba(255,216,77,.42);}
-.heat-summary{font-size:12px;color:var(--accent);font-weight:700;margin-bottom:10px;padding:0 2px;}
-.heat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:10px;overflow:hidden;}
-.heat-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;}
-.heat-name{font-size:14px;font-weight:700;color:var(--text);}
-.heat-meta{font-size:11px;color:var(--accent);background:rgba(0,196,255,0.12);border-radius:999px;padding:4px 10px;white-space:nowrap;}
-.lane-pool{display:flex;flex-direction:column;gap:6px;}
-.lane-row{display:flex;align-items:center;gap:10px;min-height:48px;padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);background:linear-gradient(90deg,rgba(0,196,255,0.06),rgba(0,119,204,0.16));}
-.lane-row.empty{opacity:.5;background:rgba(255,255,255,0.03);}
-.lane-num{width:42px;flex-shrink:0;font-size:12px;font-weight:700;color:var(--accent);text-align:center;background:rgba(0,0,0,0.18);border-radius:8px;padding:7px 0;}
-.lane-fill{flex:1;min-width:0;}
-.lane-swimmer{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.lane-sub{font-size:11px;color:var(--text2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.lane-empty-text{font-size:12px;color:var(--text2);}
+.lane-note{background:rgba(255,209,102,0.1);border:1px solid rgba(255,209,102,0.25);border-radius:12px;padding:11px 12px;color:#ffe29a;font-size:11px;line-height:1.7;margin-bottom:10px;}
+.lane-emphasis{color:#ffef5a;font-weight:900;text-shadow:0 0 10px rgba(255,239,90,.45);}
+.lane-group-title{padding:9px 11px;margin:12px 0 8px;border-radius:8px;font-size:12px;font-weight:700;background:rgba(0,196,255,0.1);border-left:3px solid var(--accent);color:var(--text);}
+.lane-summary{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.summary-pill{background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:11px;color:var(--text2);}
+.heat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:10px;}
+.heat-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;}
+.heat-title{font-size:14px;font-weight:700;color:var(--text);}
+.heat-sub{font-size:10px;color:var(--text2);margin-top:2px;}
+.heat-mark{font-size:10px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:3px 8px;border-radius:999px;font-weight:700;white-space:nowrap;}
+.lane-grid{display:grid;gap:6px;}
+.lane-row{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:stretch;}
+.lane-no-box{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--text2);min-height:58px;}
+.lane-no-box.center{background:rgba(0,196,255,0.16);border-color:rgba(0,196,255,0.4);color:#fff;}
+.lane-body{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:8px 10px;min-height:58px;display:flex;flex-direction:column;justify-content:center;}
+.lane-body.empty{opacity:0.42;}
+.lane-main{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lane-yomi{font-size:10px;color:var(--text2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lane-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:5px;}
+.lane-mini{font-size:10px;color:var(--text2);}
 </style>
 </head>
 <body>
@@ -137,6 +142,7 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Mei
     <div class="tab active" onclick="switchTab(1)">🔍 選手</div>
     <div class="tab" onclick="switchTab(2)">📋 種目</div>
     <div class="tab" onclick="switchTab(3)">📅 日程</div>
+    <div class="tab" onclick="switchTab(4)">🏁 レーン<br>予想</div>
   </div>
 </div>
 <div class="main">
@@ -178,11 +184,19 @@ body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Mei
       <button class="program-btn" onclick="searchByProgram()">この種目の出場選手を表示</button>
     </div>
     <div id="statusBar2" class="status-bar" style="display:none"></div>
-    <div id="result2"><div class="initial-state"><div class="emoji">📋</div><h3>種目から選手を検索</h3><p>種目を選んで「出場選手を表示」<br>下に組み分けとレーン配置予想図も表示します</p></div></div>
+    <div id="result2"><div class="initial-state"><div class="emoji">📋</div><h3>種目から選手を検索</h3><p>種目を選んで「出場選手を表示」<br>女子→男子の順にタイム順で表示します</p></div></div>
   </div>
   <div class="panel" id="panel3">
-    <div class="status-bar">大会要項の競技順序（全70種目）／種目をタップでレーン予想と出場選手を表示</div>
+    <div class="status-bar">大会要項の競技順序（全70種目）／種目をタップで出場選手を表示</div>
     <div id="progList"></div>
+  </div>
+  <div class="panel" id="panel4">
+    <div class="lane-note"><b>レーン<span class="lane-emphasis">配置予想図</span></b>は公式スタートリストではありません。エントリータイム順と10レーン想定で、自分がどの組・どのレーン付近になりそうかを確認するための予想です。</div>
+    <div class="program-select-wrap">
+      <select class="program-select" id="laneProgramSelect" onchange="showLanePrediction()"><option value="">── プログラムNo.を選んでください ──</option></select>
+    </div>
+    <div id="statusBar4" class="status-bar" style="display:none"></div>
+    <div id="result4"><div class="initial-state"><div class="emoji">🏁</div><h3>レーン予想を表示</h3><p>プログラムNo.を選ぶと、組数・各組人数・0〜9レーンの配置予想を表示します</p></div></div>
   </div>
 </div>
 <script>
@@ -268,8 +282,14 @@ function appendHTML(target,html){
 function lanePredictionHTML(title,entries){
   if(!entries.length)return '';
   const heats=buildLaneHeats(entries);
-  const summary=heats.map(h=>`${h.heatNo}組${h.size}人`).join(' ・ ');
-  return `<div class="lane-predict"><div class="lane-note">${title}の<b>レーン<span class="lane-emphasis">配置予想図</span></b>です。先頭組は遅い組、最終組は速い組として計算。NTは最も遅いタイム扱いです。小学生も同じ男女・同じ種目の中でタイム順に配置します。人数は「余り1人なら 3+8 に調整」、各組のレーンは速い順に <b>4→5→3→6→2→7→1→8→0→9</b> で配置しています。</div><div class="heat-summary">予想組み分け: ${summary}</div>${heats.map(h=>`<div class="heat-card"><div class="heat-head"><div class="heat-name">第${h.heatNo}組</div><div class="heat-meta">${h.size}人</div></div><div class="lane-pool">${h.lanes.map(slot=>slot.swimmer?`<div class="lane-row"><div class="lane-num">${slot.lane}コース</div><div class="lane-fill"><div class="lane-swimmer">${slot.swimmer.name}</div><div class="lane-sub">${slot.swimmer.sc} ｜ ${slot.swimmer.tm}</div></div></div>`:`<div class="lane-row empty"><div class="lane-num">${slot.lane}コース</div><div class="lane-fill"><div class="lane-empty-text">空きレーン</div></div></div>`).join('')}</div></div>`).join('')}</div>`;
+  const pills=heats.map(h=>`<span class="summary-pill">${h.heatNo}組 ${h.size}名</span>`).join('');
+  return `<div class="lane-predict"><div class="lane-group-title">${title}</div><div class="lane-note"><b>レーン<span class="lane-emphasis">配置予想図</span></b>です。先頭組は遅い組、最終組は速い組として計算。NTは最も遅いタイム扱いです。小学生も同じ男女・同じ種目の中でタイム順に配置します。人数は「余り1人なら 3+8 に調整」、各組のレーンは速い順に <b>4→5→3→6→2→7→1→8→0→9</b> で配置しています。</div><div class="lane-summary">${pills}</div>${heats.map((h,i)=>`<div class="heat-card"><div class="heat-head"><div><div class="heat-title">第${h.heatNo}組</div><div class="heat-sub">${h.size}名 / ${i===heats.length-1?'最終組は速い組':'先頭側ほど遅い組'}</div></div><div class="heat-mark">${i===heats.length-1?'最終組予想':'配置予想'}</div></div><div class="lane-grid">${h.lanes.map(makeLaneRow).join('')}</div></div>`).join('')}</div>`;
+}
+function makeLaneRow(slot){
+  const center=(slot.lane===4||slot.lane===5)?' center':'';
+  if(!slot.swimmer)return `<div class="lane-row"><div class="lane-no-box${center}">${slot.lane}L</div><div class="lane-body empty"><div class="lane-main">空きレーン</div></div></div>`;
+  const s=slot.swimmer;
+  return `<div class="lane-row"><div class="lane-no-box${center}">${slot.lane}L</div><div class="lane-body"><div class="lane-main">${s.name}</div><div class="lane-yomi">${s.yomi||''}</div><div class="lane-meta"><span class="lane-mini">🏊 ${s.sc}</span>${gradeAge(s)?`<span class="age-tag">${gradeAge(s)}</span>`:''}${genTags(s)}<span class="time-tag">${s.tm}</span></div></div></div>`;
 }
 
 document.getElementById('totalCount').textContent=sw.reduce((a,s)=>a+s.ev.length,0).toLocaleString();
@@ -294,6 +314,14 @@ const allEvents=[...new Set(sw.flatMap(s=>s.ev.map(e=>e.st+'_'+e.di)))];
 allEvents.sort((a,b)=>{const[sa,da]=a.split('_'),[sb,db]=b.split('_');return (+da-+db)||((strokeOrder[sa]||9)-(strokeOrder[sb]||9));});
 const sel=document.getElementById('programSelect');
 allEvents.forEach(key=>{const[st,di]=key.split('_');const opt=document.createElement('option');opt.value=key;opt.textContent=`${st} ${di}m`;sel.appendChild(opt);});
+const laneSel=document.getElementById('laneProgramSelect');
+PROGRAM.filter(p=>!p[4].includes('リレー')).forEach(p=>{
+  const [no,day,gen,dist,stroke,rnd]=p;
+  const opt=document.createElement('option');
+  opt.value=no;
+  opt.textContent=`No.${no} ${gen} ${stroke} ${dist} ${rnd}（${day}日目）`;
+  laneSel.appendChild(opt);
+});
 
 const genderState={1:'all',2:'all'};
 function setGender(tab,val,el){
@@ -306,6 +334,7 @@ function switchTab(n){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n-1));
   document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',i===n-1));
   if(n===3)renderProgram();
+  if(n===4)showLanePrediction();
 }
 function genTags(s){
   const f=isFemale(s);const warn=isUncertain(s)?`<span class="warn-tag">⚠要確認</span>`:'';
@@ -347,12 +376,10 @@ function searchByProgram(){
     sb.style.display='block';sb.innerHTML=`🔴 女子 <span>${fem.length}</span>名　🔵 男子 <span>${mal.length}</span>名`;
     if(fem.length){
       const t=document.createElement('div');t.className='gender-block-title female';t.textContent=`🔴 女子 ${st} ${di}m`;c.appendChild(t);
-      appendHTML(c,lanePredictionHTML(`女子 ${st} ${di}m`,fem));
       fem.forEach((s,i)=>c.appendChild(makeEntryRow(s,i+1,st,di)));
     }
     if(mal.length){
       const t=document.createElement('div');t.className='gender-block-title male';t.textContent=`🔵 男子 ${st} ${di}m`;c.appendChild(t);
-      appendHTML(c,lanePredictionHTML(`男子 ${st} ${di}m`,mal));
       mal.forEach((s,i)=>c.appendChild(makeEntryRow(s,i+1,st,di)));
     }
     if(!fem.length&&!mal.length)c.innerHTML='<div class="no-result"><div class="emoji">😓</div><p>エントリーがありません</p></div>';
@@ -361,7 +388,6 @@ function searchByProgram(){
     sb.style.display='block';sb.innerHTML=`<span>${ent.length}</span>名がエントリー`;
     const t=document.createElement('div');t.className='program-title';t.textContent=`${gen==='female'?'🔴 女子':'🔵 男子'} ${st} ${di}m`;c.appendChild(t);
     if(ent.length){
-      appendHTML(c,lanePredictionHTML(`${gen==='female'?'女子':'男子'} ${st} ${di}m`,ent));
       ent.forEach((s,i)=>c.appendChild(makeEntryRow(s,i+1,st,di)));
     }else c.innerHTML='<div class="no-result"><div class="emoji">😓</div><p>エントリーがありません</p></div>';
   }
@@ -408,11 +434,39 @@ function toggleProg(row,det,gen,dist,stroke){
     if(!ent.length){
       const nr=document.createElement('div');nr.className='no-result';nr.style.padding='24px';nr.innerHTML='<p>この種目のエントリーはありません</p>';det.appendChild(nr);
     }else{
-      appendHTML(det,lanePredictionHTML(`${g?'女子':'男子'} ${stroke} ${dist}`,ent));
       ent.forEach((s,i)=>det.appendChild(makeEntryRow(s,i+1,stroke,di)));
     }
     det.dataset.loaded='1';
   }
+}
+function showLanePrediction(){
+  const sel=document.getElementById('laneProgramSelect');
+  const c=document.getElementById('result4');
+  const sb=document.getElementById('statusBar4');
+  if(!sel||!c||!sb)return;
+  const no=parseInt(sel.value,10);
+  if(!no){
+    sb.style.display='none';
+    c.innerHTML='<div class="initial-state"><div class="emoji">🏁</div><h3>レーン予想を表示</h3><p>プログラムNo.を選ぶと、組数・各組人数・0〜9レーンの配置予想を表示します</p></div>';
+    return;
+  }
+  const p=PROGRAM.find(x=>x[0]===no);
+  if(!p){
+    sb.style.display='none';
+    c.innerHTML='<div class="no-result"><div class="emoji">😓</div><p>プログラムが見つかりません</p></div>';
+    return;
+  }
+  const [progNo,day,gen,dist,stroke,rnd]=p;
+  const di=dist.replace(/[^\d]/g,'');
+  const ent=eventEntries(stroke,di,gen==='女'?'female':'male').sort((a,b)=>tval(a.tm)-tval(b.tm));
+  const heats=buildLaneHeats(ent);
+  sb.style.display='block';
+  sb.innerHTML=`No.${progNo} ${gen} ${stroke} ${dist} ${rnd} ・ <span>${ent.length}</span>名 / <span>${heats.length}</span>組予想`;
+  if(!ent.length){
+    c.innerHTML='<div class="no-result"><div class="emoji">😓</div><p>この種目のエントリーはありません</p></div>';
+    return;
+  }
+  c.innerHTML=lanePredictionHTML(`No.${progNo} ${gen} ${stroke} ${dist} ${rnd}（${day}日目）`,ent);
 }
 function toggleCard(el){const card=el.closest('.swimmer-card');card.classList.toggle('open');el.querySelector('.toggle-hint').textContent=card.classList.contains('open')?'▲ 閉じる':'▼ タップで出場種目を表示';}
 function quickSearch(team,chipEl){document.getElementById('searchInput').value=team;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));if(chipEl)chipEl.classList.add('active');doSearch(team);}
